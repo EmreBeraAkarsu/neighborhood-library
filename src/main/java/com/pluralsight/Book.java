@@ -56,22 +56,33 @@ public class Book {
     }
 
     public void checkOut(String name){
-        if (this.isCheckedOut == false){
+        if (!this.isCheckedOut){
 
             this.isCheckedOut = true;
-            this.checkedOutTo = name
+            this.checkedOutTo = name;
         } else {
             System.out.println("You cannot checkout a book that is already checked out");
         }
     }
 
     public void checkIn(){
-        if (this.isCheckedOut == true){
+        if (this.isCheckedOut){
 
             this.isCheckedOut = false;
             this.checkedOutTo = "";
         } else {
             System.out.println("You cannot check-in a book that is already checked in");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", isCheckedOut=" + isCheckedOut +
+                ", checkedOutTo='" + checkedOutTo + '\'' +
+                '}';
     }
 }
